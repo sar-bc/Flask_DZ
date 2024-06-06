@@ -2,5 +2,18 @@
 
 {% block content %}
 {{ super() }}
-Содержимое главное страницы
+
+<div class="cursy">
+
+    {% for curs in cursy %}
+  <div class="card">
+    <div class="card_title">{{curs.title}}</div>
+    <div class="card_price">{{curs.price}}</div>
+    <div class="card_body">{{curs.body}}</div>
+    <div class="card_btn"><a href="{{ url_for('show_curs', slug=curs.url) }}" class="btn">Купить</a></div>
+
+  </div>
+    {% endfor %}
+
+</div>
 {% endblock %}
